@@ -20,15 +20,31 @@ end
 # @param {Integer} k
 # @return {ListNode}
 def rotate_right(head, k)
+  #get length of LL 
+  #modulate by k 
+  length = get_length(head)
+  if length > 0
+    k = k%get_length(head)
+  end 
   k.times do 
     head = rotate_one(head)
   end 
   head 
 end
 
+def get_length(head)
+  l = 0
+  node = head
+  while node 
+    l += 1
+    node = node.next
+  end 
+  l
+end  
+
 def rotate_one(head)
   tail = last_node(head)
-  tail.next = head
+  tail.next = head if (head != tail)
   tail #new head
   # last_node(head).next = nil
 end 
@@ -69,6 +85,9 @@ z = ListNode.new(5)
 y.next = z
 # rotate_one(v)
 # rotate_one(z)
-
-rotate_right(v, 3)
-read_nodes(x)
+k = ListNode.new(0)
+# rotate_one(k)
+rotate_one(k)
+read_nodes(k)
+# rotate_right(v, 3)
+# read_nodes(x)
