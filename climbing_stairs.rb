@@ -1,4 +1,4 @@
-#Cheated!
+#Cheated! 
 def climb_stairs(n)
   memoized = Hash.new(0)
   solve(0, n, memoized)
