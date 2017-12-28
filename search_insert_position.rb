@@ -21,20 +21,19 @@
 # Output: 0
 
 #needs to keep track of current position 
-$currentPos = 0
+#find index of num less than
+#find index of num greater than 
+#NO DUPES
+def narrow_down(nums, target, idx=0)
+  return idx if nums.empty? || target <= nums[0]
+  return idx+nums.length if target > nums[-1] 
+  p nums
+  narrow_down(nums[1...-1], idx+2)
+  
+end 
+
 def search_insert(nums, target)
-    #binary search 
-    mid_idx = nums.length/2
-    $currentPos += mid_idx
-    # p $currentPos
-    return mid_idx if nums[mid_idx] === target
-    return $currentPos if nums.empty? #find idx one lower, one higher 
-    if target > nums[mid_idx]
-      search_insert(nums[(mid_idx + 1)..-1], target)
-    else 
-      $currentPos -= nums[0...mid_idx].length
-      search_insert(nums[0...mid_idx], target)
-    end 
+   p narrow_down(nums, target)
 end
 
 p search_insert([0,1,2,3,4], 4)
