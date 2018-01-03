@@ -70,7 +70,7 @@ end
 # end 
 
 class Graph 
-  def initialize(rows)
+  def initialize(grid)
     @spt = Set[] #shortest path tree set 
     #nodes are represented as [x, y, weight] in
     @nodes = []
