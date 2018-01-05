@@ -3,7 +3,8 @@
 #select pivot (first el)
 #partition array around pivot
 #recurse on left and right 
-#pathological case: we get an array that's already sorted. n level deep tree
+#pathological case: we get an array that's already sorted. n level deep tree O(n^2)
+#to avoid this issue, pick a random pivot
 def quicksort(arr, s_idx = 0, e_idx = arr.length)
   if s_idx == e_idx 
 
