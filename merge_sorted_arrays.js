@@ -14,9 +14,13 @@
 var merge = function(nums1, m, nums2, n) {
     let idx1 = 0;
     let idx2 = 0;
+    let idx3 = n; //act like a store 
     while (idx2 < n) {
       if (nums1[idx1] > nums2[idx2]) {
-        
+        let t = nums1[idx1]
+
+        swap(nums1, idx1, nums2, idx2);
+        idx2
       } 
     }
 };
