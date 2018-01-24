@@ -2,8 +2,8 @@ let memo = {};
 function happy(num) {
   if (num === 1) return true;
   if (memo[num]) return false;
-  return happy(numToSquareDigits(num));
-
+  let newSum = happy(numToSquareDigits(num));
+  return happy(newSum);
 }
 
 function numToSquareDigits(num) {
@@ -13,12 +13,16 @@ function numToSquareDigits(num) {
     num = parseInt(num/10);
   }
   digits.push(num);
-  console.log(digits);
+  // console.log(digits);
   let sum = 0;
-  digits.forEach(digit => {
-    sum += digit*digit;
-  });
+  // digits.forEach((digit) => {
+  //   console.log(digit)
+  //   sum += digit*digit;
+  // });
+  for(let i = 0; i < digits.length; i++) {
+    sum += digits[i]*digits[i];
+  }
   return sum;
 }
 console.log(numToSquareDigits(100));
-console.log(happy(19));
+console.log(happy(2));
